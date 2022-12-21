@@ -7,6 +7,7 @@ extends Node2D
 onready var camera = $Camera2D
 onready var particle_manager = $ParticleManager
 onready var reset_timer = $ResetTimer
+onready var paddle = $Paddle
 var rand = RandomNumberGenerator.new()
 var RANDOM_SHAKE_STRENGTH = 10
 var SHAKE_DECAY = 4
@@ -16,7 +17,14 @@ var spawn_location = Vector2(320, 800)
 var lives = 3
 onready var life_label = $LivesLabel
 
-
+func _unhandled_input(event):
+	if event is InputEventScreenTouch and event.pressed == true:
+		if (event.position.x < get_viewport().get_rect().size.width):
+			paddle.direction.x = -1
+		else:
+			paddle.direction.x = 1
+	else:
+		paddle.direction.x = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rand.randomize()
