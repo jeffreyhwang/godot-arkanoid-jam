@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/iconsDefault-sheet.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=7]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=9]
+offsets = PoolRealArray( 0, 0.432258 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0, 0.251613, 0.541936, 0.787097 )
+colors = PoolColorArray( 1, 0, 0, 1, 0.871135, 0.536728, 0.981445, 1, 1, 0.597656, 0.597656, 1, 0.908844, 0.546875, 1, 1 )
+
+[node name="BreakParticle" type="CPUParticles2D"]
+material = SubResource( 7 )
+emitting = false
+amount = 16
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.51
+lifetime_randomness = 0.53
+local_coords = false
+texture = ExtResource( 1 )
+direction = Vector2( 1, 1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 259.75
+angular_velocity = 114.06
+damping = 100.0
+color_ramp = SubResource( 9 )
+color_initial_ramp = SubResource( 8 )
+anim_offset = 1.0
+anim_offset_random = 1.0
